@@ -124,12 +124,10 @@ function alterarLivro(){
 function deletarEscritor(){
     escolha = readline.question('Informe o id do Escritor que deseja excluir: ') -1;
     if(escolha >= 0 && escolha < escritores.length){
-        for(let escritor of escritores){
-        escritores.splice(escolha,1)
-        livros = livros.filter(livro => livro.idEscritor !== escritor.id)
+        let escritorExcluido = escritores.splice(escolha,1)[0]
+        livros = livros.filter(livro => livro.idEscritor !== escritorExcluido.id)
         console.log('')
         console.log('Escritor excluido com sucesso!')
-    }
     }else{
         console.log('')
         console.log('Escritor nao encontrado!')
